@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/Juan Galvez/Desktop/5to Ciclo/Compiladores/calculadora-simple-en-c-JuanGA12/main.c
+stdio.h
+-
+stdlib.h
+-
+ctype.h
+-
+
