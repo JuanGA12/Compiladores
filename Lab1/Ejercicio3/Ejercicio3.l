@@ -1,0 +1,46 @@
+%{
+
+#include<stdio.h>
+
+#define IDENTIFICADOR 1  
+#define NUMEROENTERO 2
+#define NUMERODECIMAL 3
+#define RUTANOMBREARCHIVO 4
+#define COMILLAS 5
+#define LLAVEIZQUIERDA 6
+#define LLAVEDERECHA 7
+#define SEMICOLON 8
+#define CAMBIODELINEA 9
+
+%}
+letter    [a-zA-Z]
+de "/"
+p "."
+NUMEROENTERO 	  [0-9]
+NUMERODECIMAL     {NUMEROENTERO}*.{NUMEROENTERO}+
+RUTANOMBREARCHIVO ({letter}|{de})+({p})({letter})+
+COMILLAS  ("""")
+LLAVEIZQUIERDA "{"
+LLAVEDERECHA "}"
+SEMICOLON ".,"
+CAMBIODELINEA ("\n")
+
+%option noyywrap
+
+%%
+
+{NUMEROENTERO}+  {printf("NUMEROENTERO ");}
+{NUMERODECIMAL} {printf("NUMERODECIMAL ");}
+{RUTANOMBREARCHIVO} {printf("RUTANOMBREARCHIVO ");}
+{COMILLAS} {printf("COMILLAS ");}
+{LLAVEDERECHA} {printf("LLAVEDERECHA ");}
+{LLAVEIZQUIERDA} {printf("LLAVEIZQUIERDA ");}
+{SEMICOLON} {printf("SEMICOLON ");}
+{CAMBIODELINEA} {printf("CAMBIODELINEA ");}
+
+%%
+
+int main(){
+
+	yylex ();
+}
